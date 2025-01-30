@@ -3,13 +3,18 @@
 #include <esp_now.h>
 #include <WiFi.h>
 
+
 // 创建一个结构体接收数据
 typedef struct struct_message {
-    char a[32];
-    int b;
-    float c;
-    bool d;
+//   int key_a_state;
+//   int key_b_state;
+//   int key_c_state;
+  int left_joystickx_value;
+  int left_joysticky_value;
+//   int right_joystickx_value;
+//   int right_joysticky_value;
 } struct_message;
+
 
 // 创建一个结构体变量
 struct_message myData;
@@ -20,13 +25,10 @@ void OnDataRecv(const uint8_t * mac, const uint8_t *incomingData, int len) {
   Serial.print("Bytes received: ");
   Serial.println(len);
   Serial.print("Char: ");
-  Serial.println(myData.a);
+  Serial.println(myData.left_joystickx_value);
   Serial.print("Int: ");
-  Serial.println(myData.b);
-  Serial.print("Float: ");
-  Serial.println(myData.c);
-  Serial.print("Bool: ");
-  Serial.println(myData.d);
+  Serial.println(myData.left_joysticky_value);
+ 
   Serial.println();
 }
  
